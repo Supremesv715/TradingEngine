@@ -54,7 +54,7 @@ impl Orderbook{
                     Some(limit)=>
                        limit.add_orders(order),
                     
-                    None=>{
+                    _none=>{
                         let mut limit=Limit::new(price);
                         limit.add_orders(order);
                         self.bids.insert(price, limit);
@@ -65,7 +65,7 @@ impl Orderbook{
                 Some(limit)=>
                        limit.add_orders(order),
                     
-                    None=>{
+                    _none=>{
                         let mut limit=Limit::new(price);
                         limit.add_orders(order);
                         self.asks.insert(price, limit);
@@ -102,7 +102,7 @@ impl Limit {
                     limit_order.size=0.0
 
                 },
-                flase=>{
+                false=>{
                     limit_order.size -= market_order.size;
                     market_order.size=0.0
                 },
@@ -134,7 +134,6 @@ impl Order {
 
 #[cfg(test)]
 pub mod tests{
-    use crate::matching_engine::orderbook;
 
     use super::*;
     use rust_decimal_macros::dec;

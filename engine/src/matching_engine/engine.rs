@@ -1,7 +1,7 @@
 use rust_decimal::prelude::*;
 
 
-use crate::{matching_engine::orderbook::{self, Order}, Orderbook};
+use crate::matching_engine::orderbook::{Order ,Orderbook};
 use std::collections::HashMap;
 #[derive(Debug,Eq,PartialEq,Hash,Clone)]
 pub struct TradingPair{
@@ -37,7 +37,7 @@ impl Matchingengine{
                 println!("place limit order at price level {}",price);
             Ok(())
         }
-            None=>Err(format!(
+            _none=>Err(format!(
                 "the orderbook for the given trading pair ({}) does not exist",
                 pair.to_string()
             )),
